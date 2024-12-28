@@ -7,7 +7,39 @@ class HappyNewYearPage extends StatefulWidget {
   State<HappyNewYearPage> createState() => _HappyNewYearPageState();
 }
 
-class _HappyNewYearPageState extends State<HappyNewYearPage> {
+class _HappyNewYearPageState extends State<HappyNewYearPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _offsetAnimation;
+
+  @override
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+
+    _offsetAnimation = Tween<Offset>(
+      begin: const Offset(0, -1),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.slowMiddle,
+      ),
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +61,17 @@ class _HappyNewYearPageState extends State<HappyNewYearPage> {
               ),
             ),
           ),
-          
+          AnimatedPositioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            duration: const Duration(seconds: 3),
+            child: Center(
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+          ),
         ],
       ),
     );
