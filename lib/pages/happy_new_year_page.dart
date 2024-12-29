@@ -1,3 +1,4 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 
 class HappyNewYearPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
+  ConfettiController _confettiController = ConfettiController();
 
   @override
   void initState() {
@@ -31,11 +33,17 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
     );
 
     _controller.forward();
+
+    _confettiController = ConfettiController(
+      duration: const Duration(seconds: 4),
+    );
+    _confettiController.play();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _confettiController.dispose();
     super.dispose();
   }
 
@@ -68,6 +76,23 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
                 width: 300,
                 height: 300,
               ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ConfettiWidget(
+              confettiController: _confettiController,
+              blastDirectionality: BlastDirectionality.explosive,
+              emissionFrequency: 0.5,
+              // numberOfParticles: 10,
+              shouldLoop: true,
+              colors: const [
+                Colors.green,
+                Colors.blue,
+                Colors.pink,
+                Colors.orange,
+                Colors.purple
+              ],
             ),
           ),
         ],
