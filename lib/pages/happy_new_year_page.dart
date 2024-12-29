@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fireworks/flutter_fireworks.dart';
 
 class HappyNewYearPage extends StatefulWidget {
   const HappyNewYearPage({super.key});
@@ -14,6 +15,24 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
   late Animation<Offset> _offsetAnimation;
   ConfettiController _confettiController = ConfettiController();
   bool showImage = false;
+  final FireworksController _fireworksController = FireworksController(
+    colors: const [
+      Color(0xFFFF4C40), // Coral
+      Color(0xFF6347A6), // Purple Haze
+      Color(0xFF7FB13B), // Greenery
+      Color(0xFF82A0D1), // Serenity Blue
+      Color(0xFFF7B3B2), // Rose Quartz
+      Color(0xFF864542), // Marsala
+      Color(0xFFB04A98), // Orchid
+      Color(0xFF008F6C), // Sea Green
+      Color(0xFFFFD033), // Pastel Yellow
+      Color(0xFFFF6F7C), // Pink Grapefruit
+    ],
+    minExplosionDuration: 0.5,
+    maxExplosionDuration: 1.5,
+    maxParticleCount: 100,
+    fadeOutDuration: .4,
+  );
 
   @override
   void initState() {
@@ -68,6 +87,8 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
       body: Stack(
         children: [
           Container(
@@ -113,7 +134,20 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
               ],
             ),
           ),
+          FireworksDisplay(controller: _fireworksController),
         ],
+      ),
+      floatingActionButton: SizedBox(
+        height: 60,
+        width: 60,
+        child: FloatingActionButton(
+          onPressed: () => _fireworksController.fireMultipleRockets(
+            minRockets: 5,
+            maxRockets: 15,
+            launchWindow: const Duration(milliseconds: 600),
+          ),
+          
+        ),
       ),
     );
   }
