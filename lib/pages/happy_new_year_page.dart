@@ -146,7 +146,65 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             maxRockets: 15,
             launchWindow: const Duration(milliseconds: 600),
           ),
-          
+          tooltip: 'Fire Multiple Rockets 🔥',
+          shape: const CircleBorder(),
+          backgroundColor: Colors.white.withOpacity(0.6),
+          foregroundColor: Colors.black,
+          child: const Icon(Icons.keyboard_double_arrow_up_rounded, size: 32),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 44,
+        color: Colors.white.withOpacity(.05),
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              onPressed: () => _fireworksController.fireSingleRocket(
+                color: Colors.pinkAccent,
+              ),
+              icon: const Icon(
+                Icons.keyboard_arrow_up,
+                color: Colors.pinkAccent,
+                size: 30,
+              ),
+            ),
+            IconButton(
+              onPressed: () => _fireworksController.fireSingleRocket(
+                color: Colors.blueAccent,
+              ),
+              icon: const Icon(
+                Icons.keyboard_arrow_up,
+                color: Colors.blueAccent,
+                size: 30,
+              ),
+            ),
+            IconButton(
+              onPressed: () => _fireworksController.fireSingleRocket(
+                color: Colors.greenAccent,
+              ),
+              icon: const Icon(
+                Icons.keyboard_arrow_up,
+                color: Colors.greenAccent,
+                size: 30,
+              ),
+            ),
+            IconButton(
+              onPressed: () => _fireworksController.fireSingleRocket(
+                color: Colors.amberAccent,
+              ),
+              icon: const Icon(
+                Icons.keyboard_arrow_up,
+                color: Colors.amberAccent,
+                size: 30,
+              ),
+            ),
+          ],
         ),
       ),
     );
