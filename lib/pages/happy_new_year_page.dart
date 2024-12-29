@@ -101,7 +101,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             child: ConfettiWidget(
               confettiController: _confettiController,
               blastDirectionality: BlastDirectionality.explosive,
-              emissionFrequency: 0.5,
+              emissionFrequency: 0.4,
               // numberOfParticles: 10,
               shouldLoop: true,
               colors: const [
@@ -109,7 +109,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
                 Colors.blue,
                 Colors.pink,
                 Colors.orange,
-                Colors.purple
+                Colors.purple,
               ],
             ),
           ),
