@@ -124,8 +124,8 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             child: Center(
               child: Image.asset(
                 'assets/images/happy_new_year.png',
-                width: 300,
-                height: 300,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.6,
               ),
             ),
           ),
