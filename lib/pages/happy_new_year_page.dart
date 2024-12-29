@@ -1,6 +1,9 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fireworks/flutter_fireworks.dart';
+import 'package:starsview/config/MeteoriteConfig.dart';
+import 'package:starsview/config/StarsConfig.dart';
+import 'package:starsview/starsview.dart';
 
 class HappyNewYearPage extends StatefulWidget {
   const HappyNewYearPage({super.key});
@@ -105,6 +108,15 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
+            ),
+          ),
+          const StarsView(
+            fps: 20,
+            starsConfig: StarsConfig(
+              starCount: 35,
+            ),
+            meteoriteConfig: MeteoriteConfig(
+              enabled: false,
             ),
           ),
           SlideTransition(
