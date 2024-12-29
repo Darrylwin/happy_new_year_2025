@@ -167,6 +167,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             IconButton(
               onPressed: () => _fireworksController.fireSingleRocket(
                 color: Colors.pinkAccent,
+                rocketColor: Colors.pinkAccent,
               ),
               icon: const Icon(
                 Icons.keyboard_arrow_up,
@@ -177,6 +178,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             IconButton(
               onPressed: () => _fireworksController.fireSingleRocket(
                 color: Colors.blueAccent,
+                rocketColor: Colors.blueAccent,
               ),
               icon: const Icon(
                 Icons.keyboard_arrow_up,
@@ -187,6 +189,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             IconButton(
               onPressed: () => _fireworksController.fireSingleRocket(
                 color: Colors.greenAccent,
+                rocketColor: Colors.greenAccent,
               ),
               icon: const Icon(
                 Icons.keyboard_arrow_up,
@@ -197,6 +200,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
             IconButton(
               onPressed: () => _fireworksController.fireSingleRocket(
                 color: Colors.amberAccent,
+                rocketColor: Colors.amberAccent,
               ),
               icon: const Icon(
                 Icons.keyboard_arrow_up,
