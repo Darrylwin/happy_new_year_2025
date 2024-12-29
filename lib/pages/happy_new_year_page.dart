@@ -13,12 +13,11 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
   late Animation<Offset> _offsetAnimation;
 
   @override
-  @override
   void initState() {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 4),
     );
 
     _offsetAnimation = Tween<Offset>(
@@ -27,7 +26,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
     ).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Curves.slowMiddle,
+        curve: Curves.easeOutBack,
       ),
     );
 
@@ -61,14 +60,13 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
               ),
             ),
           ),
-          AnimatedPositioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            duration: const Duration(seconds: 3),
+          SlideTransition(
+            position: _offsetAnimation,
             child: Center(
-              child: Container(
-                color: Colors.red,
+              child: Image.asset(
+                'assets/images/happy_new_year.png',
+                width: 300,
+                height: 300,
               ),
             ),
           ),
