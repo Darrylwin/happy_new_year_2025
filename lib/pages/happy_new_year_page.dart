@@ -13,6 +13,7 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
   ConfettiController _confettiController = ConfettiController();
+  bool showImage = false;
 
   @override
   void initState() {
@@ -35,9 +36,26 @@ class _HappyNewYearPageState extends State<HappyNewYearPage>
     _controller.forward();
 
     _confettiController = ConfettiController(
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 2),
     );
-    _confettiController.play();
+    // Afficher l'image d'abord
+    Future.delayed(
+      const Duration(
+        milliseconds: 700,
+      ),
+      () {
+        setState(() {
+          showImage = true;
+        });
+      },
+    );
+    //lancer les confetits
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        _confettiController.play();
+      },
+    );
   }
 
   @override
